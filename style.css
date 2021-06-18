@@ -73,6 +73,10 @@ img {
     width: 50%;
   }
 
+  .title {
+      text-align: center;
+  }
+
   .footer {
    position: relative;
    text-align: center;
