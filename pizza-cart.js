@@ -68,6 +68,13 @@ function BtnClick() {
     largePizzaTotal.innerHTML = (largeQty * 129).toFixed(2);
     totalCart = smallQty * 49.00 + medQty * 89.00 + largeQty * 129.00;
     cartTotal.innerHTML = totalCart.toFixed(2);
+
+    if (totalCart > 0) {
+        checkOut.classList.remove('hidden');
+    } else  {
+        checkOut.classList.add('hidden');
+        payOut.classList.add('hidden');
+    }
 }
 
 function checkOutClick(){
@@ -80,12 +87,59 @@ function payment(){
     var paymentAmt = Number(payAmt.value);
  if (paymentAmt == totalCart){
     message.innerHTML = "Enjoy your Pizza!";
+    smallQty = 0;
+    medQty = 0;
+    largeQty = 0;
+    totalCart = 0;
+
+    smallPizzaQty.innerHTML = smallQty;
+    medPizzaQty.innerHTML = medQty;
+    largePizzaQty.innerHTML = largeQty;
+
+    smallPizzaTotal.innerHTML = (smallQty * 39).toFixed(2);
+    medPizzaTotal.innerHTML = (medQty * 79).toFixed(2);
+    largePizzaTotal.innerHTML = (largeQty * 99).toFixed(2);
+    totalCart = smallQty * 39.00 + medQty * 79.00 + largeQty * 99.00;
+    cartTotal.innerHTML = totalCart.toFixed(2);
+
+    setTimeout(function () {
+        message.classList.toggle('hidden');
+        checkOut.classList.remove('hidden');
+        payOut.classList.add('hidden');
+        payAmt.value = "";
+    }, 2500);
+
  } else if (paymentAmt > totalCart) {
     var change = paymentAmt - totalCart;
     message.innerHTML = "Enjoy your Pizza, here is your change R" + change.toFixed(2);
- } else {
+    smallQty = 0;
+    medQty = 0;
+    largeQty = 0;
+    totalCart = 0;
+
+    smallPizzaQty.innerHTML = smallQty;
+    medPizzaQty.innerHTML = medQty;
+    largePizzaQty.innerHTML = largeQty;
+
+    smallPizzaTotal.innerHTML = (smallQty * 39).toFixed(2);
+    medPizzaTotal.innerHTML = (medQty * 79).toFixed(2);
+    largePizzaTotal.innerHTML = (largeQty * 99).toFixed(2);
+    totalCart = smallQty * 39.00 + medQty * 79.00 + largeQty * 99.00;
+    cartTotal.innerHTML = totalCart.toFixed(2);
+
+    setTimeout(function () {
+        message.classList.toggle('hidden');
+        checkOut.classList.remove('hidden');
+        payOut.classList.add('hidden');
+        payAmt.value = "";
+    }, 2500);
+
+} else {
     message.innerHTML = "Sorry, that is not enough money!";
- }
+    setTimeout(function () {
+        message.classList.toggle('hidden');
+    }, 2500);
+}
 }
 
 smallAddBtn.addEventListener('click', BtnClick);
@@ -102,4 +156,4 @@ largeAddBtnBuy.addEventListener('click',BtnClick);
 
 checkOut.addEventListener('click', checkOutClick)
 
-payBtn.addEventListener('click',payment)
+payBtn.addEventListener('click', payment)
