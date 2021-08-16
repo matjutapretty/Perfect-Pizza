@@ -137,7 +137,6 @@ function payment(){
     }, 2500);
 
 } else if (paymentAmt = totalCart) {
-    message.innerHTML = " ";
     checkOut.classList.remove('hidden');
     smallQty = 0;
     medQty = 0;
