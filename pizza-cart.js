@@ -105,7 +105,7 @@ function payment(){
 
     setTimeout(function () {
         message.classList.toggle('hidden');
-        checkOut.classList.remove('hidden');
+        checkOut.classList.toggle('hidden');
         payOut.classList.add('hidden');
         payAmt.value = "";
     }, 2500);
@@ -131,31 +131,7 @@ function payment(){
 
     setTimeout(function () {
         message.classList.toggle('hidden');
-        checkOut.classList.remove('hidden');
-        payOut.classList.add('hide');
-        payAmt.value = "";
-    }, 2500);
-
-} else if (paymentAmt = totalCart) {
-    checkOut.classList.remove('hidden');
-    smallQty = 0;
-    medQty = 0;
-    largeQty = 0;
-    totalCart = 0;
-
-    smallPizzaQty.innerHTML = smallQty;
-    medPizzaQty.innerHTML = medQty;
-    largePizzaQty.innerHTML = largeQty;
-
-    smallPizzaTotal.innerHTML = (smallQty * 39).toFixed(2);
-    medPizzaTotal.innerHTML = (medQty * 79).toFixed(2);
-    largePizzaTotal.innerHTML = (largeQty * 99).toFixed(2);
-    totalCart = smallQty * 39.00 + medQty * 79.00 + largeQty * 99.00;
-    cartTotal.innerHTML = totalCart.toFixed(2);
-
-    setTimeout(function () {
         checkOut.classList.toggle('hidden');
-        checkOut.classList.remove('hidden');
         payOut.classList.add('hidden');
         payAmt.value = "";
     }, 2500);
@@ -167,12 +143,6 @@ function payment(){
         message.classList.toggle('hidden');
     }, 2500);
 }
-
-setTimeout(function () {
-    checkOut.classList.add('hidden');
-    payOut.classList.add('hidden');
-    payAmt.value = "";
-}, 2500);
 }
 
 smallAddBtn.addEventListener('click', BtnClick);
